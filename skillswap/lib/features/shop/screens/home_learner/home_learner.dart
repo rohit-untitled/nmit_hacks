@@ -18,9 +18,9 @@ import '../home/widgets/home_appbar.dart';
 import '../home/widgets/promo_slider_educator.dart';
 
 class HomeLearner extends StatefulWidget {
-  final String email;
 
-  const HomeLearner({super.key, required this.email});
+
+  const HomeLearner({super.key});
 
   @override
   State<HomeLearner> createState() => _HomeLearnerState();
@@ -48,7 +48,7 @@ class _HomeLearnerState extends State<HomeLearner> {
               child: Column(
                 children: [
                   // app bar
-                  THomeAppBar(email: widget.email),
+                  THomeAppBar(),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   // search bar

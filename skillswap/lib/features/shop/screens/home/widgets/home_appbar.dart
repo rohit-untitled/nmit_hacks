@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillswap/utils/constants/global.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/text_strings.dart';
@@ -6,9 +7,9 @@ import '../../../../../utils/constants/text_strings.dart';
 class THomeAppBar extends StatelessWidget {
 
   const THomeAppBar({
-    super.key, required this.email,
+    super.key,
   });
-  final String email;
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class THomeAppBar extends StatelessWidget {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(email,
+          Text(usernameGlobal,
               style: Theme.of(context)
                   .textTheme
                   .headlineMedium!

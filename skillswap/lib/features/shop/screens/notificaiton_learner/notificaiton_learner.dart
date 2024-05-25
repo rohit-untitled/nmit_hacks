@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:skillswap/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:skillswap/utils/constants/image_strings.dart';
+import 'package:skillswap/api_models/sessions_list.dart';
+import 'package:skillswap/utils/constants/global.dart';
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
-import '../../../../utils/constants/colors.dart';
+import '../../../../fetch_api/learner_sessions.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class NotificationLearner extends StatelessWidget {
@@ -18,45 +18,44 @@ class NotificationLearner extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const TSearchContainer(
-                text: 'Search',
-                padding: EdgeInsets.zero,
-                showBorder: true,
-                showBackground: false),
+              text: 'Search',
+              padding: EdgeInsets.zero,
+              showBorder: true,
+              showBackground: false,
+            ),
             const SizedBox(height: TSizes.spaceBtwItems),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.7,
-              child: ListView.builder(
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return TRoundedContainer(
-                    width: double.infinity,
-                    showBorder: true,
-                    padding: const EdgeInsets.all(TSizes.sm),
-                    backgroundColor: Colors.transparent,
-                    borderColor: TColors.grey,
-                    margin: const EdgeInsets.only(bottom: TSizes.spaceBtwItems),
-                    child: ListTile(
-                      leading: const Image(
-                        image: AssetImage(TImages.userProfileImage1),
-                      ),
-                      title: const Text('Angilia Sam'),
-                      subtitle: const Text('Plantings, python...'),
-                      trailing: const Text(
-                        'confirmed',
-                        style: TextStyle(color: Colors.green),
-                      ),
-                      onTap: () {
-                        // Handle onTap event
+            FutureBuilder<List<Session>>(
+              future: fetchLearnerSessions(usernameGlobal, passwordGlobal),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                  return const Center(child: Text('No sessions found'));
+                } else {
+                  return Expanded(
+                    child: ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        Session session = snapshot.data![index];
+                        return ListTile(
+                          title: Text(
+                              'Session ${session.id} - ${session.duration} mins'),
+                          subtitle: Text(session.problemDescription),
+                          trailing: Text('\$${session.price}'),
+                        );
                       },
                     ),
                   );
-                },
-              ),
+                }
+              },
             ),
           ],
         ),

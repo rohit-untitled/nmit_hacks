@@ -28,7 +28,7 @@ class LearnerLogin extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwSections),
               const TLoginHeader(),
 
-              // Form
+              // Learner login Form
               const LearnerLoginForm(),
               // Divider
               TFormDivider(dividerText: TTexts.orSignInWith.capitalize!),

@@ -23,7 +23,6 @@ class OnBoardingController extends GetxController {
   void nextPage() {
     if (currentPageIndex.value == 2) {
       Get.offAll(
-        // const LoginScreen(),
         const Options(),
       );
     } else {

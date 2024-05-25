@@ -3,7 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:skillswap/utils/constants/api_constants.dart';
 import '../../../../navigation_menu_learner.dart';
+import '../../../../utils/constants/global.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/helpers/network_manager.dart';
 import '../../../../utils/popups/full_screen_loader.dart';
@@ -66,12 +68,15 @@ class LoginController extends GetxController {
 
         // write to local storage to keep user logged in
         localStorage.write('isLoggedIn', true);
+        // Assign values to global variables
+        usernameGlobal = email.text.trim();
+        passwordGlobal = password.text.trim();
 
         // remove loader
         TFullScreenLoader.stopLoading();
 
         // navigate user to the Navigation menu or NextScreen with email and password
-        Get.offAll(() => NavigationMenuLearner(email: email.text.trim()));
+        Get.offAll(() => const NavigationMenuLearner());
       } else {
         TFullScreenLoader.stopLoading();
         TLoaders.errorSnackBar(
@@ -90,7 +95,7 @@ class LoginController extends GetxController {
 
   Future<Map<String, dynamic>?> postLogin(
       String username, String password) async {
-    const String url = 'https://skillswap-3pae.onrender.com/login/';
+    const String url = ApiConstants.baseUrl + ApiConstants.loginEndpoint;
     try {
       final response = await http.post(
         Uri.parse(url),

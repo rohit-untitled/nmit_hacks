@@ -6,6 +6,7 @@ import '../../../../../navigation_menu_educator.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import '../../../controllers/login/login_controller.dart';
 import '../../password_configuration/forget_password.dart';
 
 class EducatorLoginForm extends StatelessWidget {
@@ -13,37 +14,67 @@ class EducatorLoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Form(
+      key: controller.loginFormKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: TSizes.spaceBtwSections),
         child: Column(
           children: [
-            //Email
+            //username login
             TextFormField(
+              controller: controller.email,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
                   labelText: TTexts.email),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your email';
+                }
+                return null;
+              },
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
 
             //Password
-            TextFormField(
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Iconsax.password_check),
-                labelText: TTexts.password,
-                suffixIcon: Icon(Iconsax.eye_slash),
+            Obx(
+              () => TextFormField(
+                controller: controller.password,
+                obscureText: controller.hidePassword.value,
+                decoration: InputDecoration(
+                  labelText: TTexts.password,
+                  prefixIcon: const Icon(Iconsax.password_check),
+                  suffixIcon: IconButton(
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
+                    icon: Icon(controller.hidePassword.value
+                        ? Iconsax.eye_slash
+                        : Iconsax.eye),
+                  ),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  }
+                  return null;
+                },
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields / 2),
 
-            // Remember me and Forget Password,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // Remember me
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (value) {}),
+                    Obx(
+                      () => Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: (value) =>
+                            controller.rememberMe.value = value!,
+                      ),
+                    ),
                     const Text(TTexts.rememberMe),
                   ],
                 ),
@@ -54,12 +85,19 @@ class EducatorLoginForm extends StatelessWidget {
               ],
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
+
             //sign in button
-
-            CustomButton(
-                onPressed: () => Get.to(() => const NavigationMenuEducator()),
-                text: TTexts.signIn),
-
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: TColors.secondary,
+                  side: const BorderSide(color: Colors.transparent),
+                ),
+                onPressed: () => controller.emailAndPasswordSignIn(),
+                child: const Text(TTexts.signIn),
+              ),
+            ),
             const SizedBox(height: TSizes.spaceBtwItems),
             //create account button
             SizedBox(

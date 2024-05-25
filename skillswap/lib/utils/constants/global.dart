@@ -1,0 +1,2 @@
+String usernameGlobal = '';
+String passwordGlobal = '';
