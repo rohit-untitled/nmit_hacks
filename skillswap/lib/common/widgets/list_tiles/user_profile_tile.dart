@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:skillswap/utils/constants/global.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
@@ -21,7 +22,7 @@ class TUserProfileTile extends StatelessWidget {
         height: 50,
         padding: 0,
       ),
-      title: Text('Rohit Sharma',
+      title: Text(usernameGlobal,
           style: Theme.of(context)
               .textTheme
               .headlineSmall!

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:skillswap/utils/constants/global.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../utils/constants/colors.dart';
 
@@ -16,7 +17,7 @@ class EducatorHomeAppbar extends StatelessWidget {
                   .textTheme
                   .headlineSmall!
                   .apply(color: TColors.black)),
-          Text('NerdHeads',
+          Text(usernameGlobal,
               style: Theme.of(context)
                   .textTheme
                   .headlineLarge!

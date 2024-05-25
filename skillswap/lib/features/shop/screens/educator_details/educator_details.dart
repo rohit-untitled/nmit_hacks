@@ -50,7 +50,7 @@ class EducatorDetails extends StatelessWidget {
                   // tags of the educator
                   TagTextsEducatorDetails(
                     tags: educator.tags,
-                    textAlign: TextAlign.left,
+                    // textAlign: TextAlign.left,
                     style: Theme.of(context).textTheme.bodySmall,
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),

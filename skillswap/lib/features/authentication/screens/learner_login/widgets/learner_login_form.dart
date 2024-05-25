@@ -93,7 +93,7 @@ class LearnerLoginForm extends StatelessWidget {
                   backgroundColor: TColors.secondary,
                   side: const BorderSide(color: Colors.transparent),
                 ),
-                onPressed: () => controller.emailAndPasswordSignIn(),
+                onPressed: () => controller.emailAndPasswordSignInLearner(),
                 child: const Text(TTexts.signIn),
               ),
             ),

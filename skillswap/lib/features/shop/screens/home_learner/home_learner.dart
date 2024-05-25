@@ -48,7 +48,7 @@ class _HomeLearnerState extends State<HomeLearner> {
               child: Column(
                 children: [
                   // app bar
-                  THomeAppBar(),
+                  const THomeAppBar(),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   // search bar

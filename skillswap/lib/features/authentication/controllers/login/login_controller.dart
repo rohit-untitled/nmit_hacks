@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:skillswap/navigation_menu_educator.dart';
 import 'package:skillswap/utils/constants/api_constants.dart';
 import '../../../../navigation_menu_learner.dart';
 import '../../../../utils/constants/global.dart';
@@ -29,8 +30,8 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
-  // email and password signin
-  Future<void> emailAndPasswordSignIn() async {
+  // email and password signin learner
+  Future<void> emailAndPasswordSignInLearner() async {
     try {
       // start loading
       TFullScreenLoader.openLoadingDialog(
@@ -77,6 +78,65 @@ class LoginController extends GetxController {
 
         // navigate user to the Navigation menu or NextScreen with email and password
         Get.offAll(() => const NavigationMenuLearner());
+      } else {
+        TFullScreenLoader.stopLoading();
+        TLoaders.errorSnackBar(
+            title: 'Oh Snap', message: 'Invalid credentials');
+      }
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
+
+  // email and password signin educator
+  Future<void> emailAndPasswordSignInEducator() async {
+    try {
+      // start loading
+      TFullScreenLoader.openLoadingDialog(
+          'Logging you in...', TImages.docerAnimation);
+
+      // check internet connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        // remove loader
+        TFullScreenLoader.stopLoading();
+        TLoaders.errorSnackBar(
+            title: 'Oh Snap', message: 'No internet connection');
+        return;
+      }
+
+      // form validation
+      if (!loginFormKey.currentState!.validate()) {
+        // remove loader
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      // login user using Email and password authentication
+      final response = await postLogin(email.text.trim(), password.text.trim());
+
+      if (response != null && response['message'] == 'Login successful') {
+        // save data if remember me is selected
+        if (rememberMe.value) {
+          localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
+          localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
+        } else {
+          localStorage.remove('REMEMBER_ME_EMAIL');
+          localStorage.remove('REMEMBER_ME_PASSWORD');
+        }
+
+        // write to local storage to keep user logged in
+        localStorage.write('isLoggedIn', true);
+        // Assign values to global variables
+        usernameGlobal = email.text.trim();
+        passwordGlobal = password.text.trim();
+
+        // remove loader
+        TFullScreenLoader.stopLoading();
+
+        // navigate user to the Navigation menu or NextScreen with email and password
+        Get.offAll(() => const NavigationMenuEducator());
       } else {
         TFullScreenLoader.stopLoading();
         TLoaders.errorSnackBar(

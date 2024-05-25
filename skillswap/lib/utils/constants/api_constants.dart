@@ -1,7 +1,7 @@
 // constants.dart
 class ApiConstants {
   // base url
-  static const String baseUrl = 'https://skillswap-h31s.onrender.com';
+  static const String baseUrl = 'https://skillswap-jimz.onrender.com';
   // for home tags ex- python, gardening, etc
   static const String listTagsEndpoint = '/list-tags/';
   // for educators list
