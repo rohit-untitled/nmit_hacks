@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:skillswap/common/widgets/custom_buttons/custom_button.dart';
-import '../../../../../navigation_menu_educator.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
@@ -26,7 +24,7 @@ class EducatorLoginForm extends StatelessWidget {
               controller: controller.email,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
-                  labelText: TTexts.email),
+                  labelText: TTexts.username),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email';

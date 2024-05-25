@@ -24,7 +24,7 @@ class LearnerLoginForm extends StatelessWidget {
               controller: controller.email,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
-                  labelText: TTexts.email),
+                  labelText: TTexts.username),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email';
