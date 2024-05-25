@@ -15,11 +15,12 @@ import '../../../../utils/constants/sizes.dart';
 import '../../../../api_models/banner_tag.dart';
 import '../../../../api_models/educator_list.dart';
 import '../home/widgets/home_appbar.dart';
-import '../home/widgets/promo_slider.dart';
 import '../home/widgets/promo_slider_educator.dart';
 
 class HomeLearner extends StatefulWidget {
-  const HomeLearner({super.key});
+  final String email;
+
+  const HomeLearner({super.key, required this.email});
 
   @override
   State<HomeLearner> createState() => _HomeLearnerState();
@@ -47,7 +48,7 @@ class _HomeLearnerState extends State<HomeLearner> {
               child: Column(
                 children: [
                   // app bar
-                  const THomeAppBar(),
+                  THomeAppBar(email: widget.email),
                   const SizedBox(height: TSizes.spaceBtwSections),
 
                   // search bar
@@ -100,7 +101,6 @@ class _HomeLearnerState extends State<HomeLearner> {
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                
                   const PromoSliderEducator(
                     banners: [
                       TImages.lea1,
@@ -117,7 +117,7 @@ class _HomeLearnerState extends State<HomeLearner> {
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
-                  //popular educators
+                  // popular educators
                   FutureBuilder<List<Educator>>(
                     future: futureEducators,
                     builder: (context, snapshot) {

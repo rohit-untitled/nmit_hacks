@@ -70,8 +70,8 @@ class LoginController extends GetxController {
         // remove loader
         TFullScreenLoader.stopLoading();
 
-        // navigate user to the Navigation menu
-        Get.offAll(() => const NavigationMenuLearner());
+        // navigate user to the Navigation menu or NextScreen with email and password
+        Get.offAll(() => NavigationMenuLearner(email: email.text.trim()));
       } else {
         TFullScreenLoader.stopLoading();
         TLoaders.errorSnackBar(

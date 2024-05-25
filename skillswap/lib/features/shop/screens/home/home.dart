@@ -9,7 +9,6 @@ import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
-import 'widgets/home_appbar.dart';
 import 'widgets/promo_slider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // app bar
-                  THomeAppBar(),
+                  // THomeAppBar(),
                   SizedBox(height: TSizes.spaceBtwSections),
 
                   // search bar

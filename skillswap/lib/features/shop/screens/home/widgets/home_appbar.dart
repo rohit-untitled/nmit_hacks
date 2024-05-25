@@ -4,9 +4,11 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/text_strings.dart';
 
 class THomeAppBar extends StatelessWidget {
+
   const THomeAppBar({
-    super.key,
+    super.key, required this.email,
   });
+  final String email;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class THomeAppBar extends StatelessWidget {
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(TTexts.homeAppbarTitle,
+          Text(email,
               style: Theme.of(context)
                   .textTheme
                   .headlineMedium!

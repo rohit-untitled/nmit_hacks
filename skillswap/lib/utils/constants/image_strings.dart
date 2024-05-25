@@ -5,6 +5,10 @@ class TImages {
   // -- App Logos
   static const String skillSwap = "assets/logos/skill-swap.svg";
 
+  // options logo
+  static const String learnerLogo = "assets/logos/learner.png";
+  static const String educatorLogo = "assets/logos/educator.png";
+
   // -- Social Logos
   static const String google = "assets/logos/google-icon.png";
   static const String facebook = "assets/logos/facebook-icon.png";

@@ -6,8 +6,10 @@ class OptionButtons extends StatelessWidget {
     super.key,
     required this.heading,
     required this.onTap,
+    required this.image,
   });
   final String heading;
+  final String image;
   final VoidCallback onTap;
 
   @override
@@ -18,7 +20,7 @@ class OptionButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: const EdgeInsets.all(50),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.grey[300],
               borderRadius: BorderRadius.circular(12),
@@ -39,7 +41,10 @@ class OptionButtons extends StatelessWidget {
                 )
               ],
             ),
-            child: const Text('logo'),
+            child: Image.asset(
+              image,
+              height: 100,
+            ),
           ),
           const SizedBox(
             height: TSizes.spaceBtwItems,

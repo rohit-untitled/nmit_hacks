@@ -9,11 +9,12 @@ import 'utils/constants/colors.dart';
 import 'utils/helpers/helper_functions.dart';
 
 class NavigationMenuLearner extends StatelessWidget {
-  const NavigationMenuLearner({super.key});
+  const NavigationMenuLearner({super.key, required this.email});
+  final String email;
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(NavigationController());
+    final controller = Get.put(NavigationController(email: email));
     final darkMode = THelperFunctions.isDarkMode(context);
 
     return WillPopScope(
@@ -48,8 +49,12 @@ class NavigationMenuLearner extends StatelessWidget {
 
 class NavigationController extends GetxController {
   final Rx<int> selectedIndex = 0.obs;
-  final screens = [
-    const HomeLearner(),
+  final String email;
+
+  NavigationController({required this.email});
+
+  late final screens = [
+    HomeLearner(email: email),
     const NotificationLearner(),
     const SettingLearner(),
   ];
