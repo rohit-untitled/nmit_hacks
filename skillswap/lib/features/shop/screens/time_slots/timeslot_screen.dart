@@ -3,7 +3,6 @@ import 'package:skillswap/api_models/educator_list.dart';
 import 'package:skillswap/common/widgets/custom_buttons/custom_button.dart';
 import 'package:skillswap/common/widgets/texts/title_text.dart';
 import 'package:skillswap/features/shop/screens/time_slots/widgets/timings.dart';
-import 'package:skillswap/utils/constants/colors.dart';
 
 import '../../../../common/widgets/appbar/appbar.dart';
 import '../../../../utils/constants/sizes.dart';

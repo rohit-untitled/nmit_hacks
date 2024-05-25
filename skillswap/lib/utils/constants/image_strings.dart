@@ -54,6 +54,38 @@ class TImages {
       "assets/images/animations/sammy-line-man-receives-a-mail.png";
   static const String verifyIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
+  static const String cartAnimation =
+      "assets/images/animations/lady-adding-product-in-cart-animation.json";
+  static const String orderCompleteAnimation =
+      "assets/images/animations/order-complete-car-delivery-animation.json";
+  static const String packageAnimation =
+      "assets/images/animations/98783-packaging-in-progress.json";
+  static const String paperPlaneAnimation =
+      "assets/images/animations/110052-paper-plane.json";
+  static const String carAnimation =
+      "assets/images/animations/order-complete-car-delivery-animation.json";
+  static const String pencilAnimation =
+      "assets/images/animations/140429-pencil-drawing.json";
+  static const String searchAnimation =
+      "assets/images/animations/72785-searching.json";
+  static const String emptyAnimation =
+      "assets/images/animations/53207-empty-file.json";
+  static const String securityAnimation =
+      "assets/images/animations/67263-security-icon-transparent.json";
+  static const String docerAnimation =
+      "assets/images/animations/141594-animation-of-docer.json";
+  static const String successfullyRegisterAnimation =
+      "assets/images/animations/72462-check-register.json";
+  static const String thankYouAnimaiton =
+      "assets/images/animations/104368-thank-you.json";
+  static const String paymentSucessfulAnimation =
+      "assets/images/animations/120978-payment-successful.json";
+  static const String loadingJuggleAnimation =
+      "assets/images/animations/141397-loading-juggle.json";
+  static const String cloudUploadingAnimaiton =
+      "assets/images/animations/cloud-uploading-animation.json";
+  static const String loaderAnimation =
+      "assets/images/animations/loader-animation.json";
 
   // -- OnBoarding Texts
   static const String onBoardingImage1 =
@@ -235,6 +267,11 @@ class TImages {
   static const String edu1 = "assets/images/products/edu_1.svg";
   static const String edu2 = "assets/images/products/edu_2.svg";
   static const String edu3 = "assets/images/products/edu_3.svg";
+
+  // learner banner
+  static const String lea1 = "assets/images/products/learner1.svg";
+  static const String lea2 = "assets/images/products/learner2.svg";
+  static const String lea3 = "assets/images/products/learner3.svg";
 
   static const String banner1 = "assets/images/banners/banner_1.jpg";
   static const String banner2 = "assets/images/banners/banner_2.jpg";

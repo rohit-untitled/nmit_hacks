@@ -6,7 +6,6 @@ import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../home/widgets/home_appbar_educator.dart';
-import '../home/widgets/promo_slider.dart';
 import '../home/widgets/promo_slider_educator.dart';
 import '../upcoming_sessions/up_coming_sessions.dart';
 import 'widgets/grid_up_coming_sessions.dart';

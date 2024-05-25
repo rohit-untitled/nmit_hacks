@@ -15,9 +15,14 @@ class NavigationMenuLearner extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
     final darkMode = THelperFunctions.isDarkMode(context);
-    return Scaffold(
-      bottomNavigationBar: Obx(
-        () => NavigationBar(
+
+    return WillPopScope(
+      onWillPop: () async {
+        return true;
+      },
+      child: Scaffold(
+        bottomNavigationBar: Obx(
+          () => NavigationBar(
             height: 80,
             elevation: 0,
             selectedIndex: controller.selectedIndex.value,
@@ -32,9 +37,11 @@ class NavigationMenuLearner extends StatelessWidget {
               NavigationDestination(
                   icon: Icon(Iconsax.notification), label: 'Notification'),
               NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
-            ]),
+            ],
+          ),
+        ),
+        body: Obx(() => controller.screens[controller.selectedIndex.value]),
       ),
-      body: Obx(() => controller.screens[controller.selectedIndex.value]),
     );
   }
 }

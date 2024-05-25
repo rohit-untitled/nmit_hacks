@@ -16,12 +16,13 @@ import '../../../../api_models/banner_tag.dart';
 import '../../../../api_models/educator_list.dart';
 import '../home/widgets/home_appbar.dart';
 import '../home/widgets/promo_slider.dart';
+import '../home/widgets/promo_slider_educator.dart';
 
 class HomeLearner extends StatefulWidget {
   const HomeLearner({super.key});
 
   @override
-  _HomeLearnerState createState() => _HomeLearnerState();
+  State<HomeLearner> createState() => _HomeLearnerState();
 }
 
 class _HomeLearnerState extends State<HomeLearner> {
@@ -34,7 +35,6 @@ class _HomeLearnerState extends State<HomeLearner> {
     futureTags = fetchTags();
     futureEducators = fetchEducators();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -100,12 +100,12 @@ class _HomeLearnerState extends State<HomeLearner> {
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  // promo slider
-                  const TPromoSlider(
+                
+                  const PromoSliderEducator(
                     banners: [
-                      TImages.promoBanner1,
-                      TImages.promoBanner2,
-                      TImages.promoBanner3,
+                      TImages.lea1,
+                      TImages.lea2,
+                      TImages.lea3,
                     ],
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
@@ -116,7 +116,7 @@ class _HomeLearnerState extends State<HomeLearner> {
                     onPressed: () => Get.to(() => const AllEducators()),
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
-                  
+
                   //popular educators
                   FutureBuilder<List<Educator>>(
                     future: futureEducators,
