@@ -5,6 +5,19 @@ class TImages {
   // -- App Logos
   static const String skillSwap = "assets/logos/skill-swap.svg";
 
+  // -- tags images
+  static const String gardening = "assets/images/tags/gardening.jpg";
+  static const String petcare = "assets/images/tags/pet_care.jpg";
+  static const String pilates = "assets/images/tags/Pilates.jpg";
+  static const String homedecor = "assets/images/tags/home_decor.jpg";
+  static const String music = "assets/images/tags/musician.jpg";
+  static const String baking = "assets/images/tags/baking.jpg";
+  static const String studies = "assets/images/tags/higher_studies.jpg";
+  static const String maternity = "assets/images/tags/maternity.jpg";
+  static const String intimacy = "assets/images/tags/initimacy.jpg";
+  static const String gardeningbanner =
+      "assets/images/tags/gardeningbanner.jpg";
+
   // options logo
   static const String learnerLogo = "assets/logos/learner.png";
   static const String educatorLogo = "assets/logos/educator.png";

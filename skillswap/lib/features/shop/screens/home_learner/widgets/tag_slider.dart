@@ -16,34 +16,49 @@ class TagSliderWidget extends StatelessWidget {
     return THomeCategories(
       categories: [
         CategoryData(
-          image: TImages.banner2,
-          title: 'Category 1',
-          onTap: () =>
-              Get.to(() => const SubCategoriesScreen()),
+          image: TImages.gardening,
+          title: 'Gardening',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
         ),
         CategoryData(
-          image: TImages.banner3,
-          title: 'Category 1',
-          onTap: () =>
-              Get.to(() => const SubCategoriesScreen()),
+          image: TImages.petcare,
+          title: 'PetCare',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
         ),
         CategoryData(
-          image: TImages.banner1,
-          title: 'Category 1',
-          onTap: () =>
-              Get.to(() => const SubCategoriesScreen()),
+          image: TImages.music,
+          title: 'Musicians',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
         ),
         CategoryData(
-          image: TImages.banner4,
-          title: 'Category 1',
-          onTap: () =>
-              Get.to(() => const SubCategoriesScreen()),
+          image: TImages.studies,
+          title: 'Higher Studies',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
         ),
         CategoryData(
-          image: TImages.banner5,
-          title: 'Category 1',
-          onTap: () =>
-              Get.to(() => const SubCategoriesScreen()),
+          image: TImages.pilates,
+          title: 'Pilates',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
+        ),
+        CategoryData(
+          image: TImages.baking,
+          title: 'Baking',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
+        ),
+        CategoryData(
+          image: TImages.maternity,
+          title: 'Maternity',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
+        ),
+        CategoryData(
+          image: TImages.homedecor,
+          title: 'Home Decor',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
+        ),
+        CategoryData(
+          image: TImages.intimacy,
+          title: 'Intimacy',
+          onTap: () => Get.to(() => const SubCategoriesScreen()),
         ),
       ],
     );
