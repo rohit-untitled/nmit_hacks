@@ -18,6 +18,7 @@ class NotificationLearner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // notifications
     return Scaffold(
       appBar: TAppBar(
         title: Text(

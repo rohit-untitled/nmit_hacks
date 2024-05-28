@@ -10,4 +10,7 @@ class ApiConstants {
   static const String loginEndpoint = '/login/';
   // for learner sessions
   static const String sessionsEndpoint = '/learner-sessions/';
+
+  // for educator session history
+  static const String sessionHistoryEndpoint = '/session-history/';
 }
